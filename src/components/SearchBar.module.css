@@ -1,0 +1,24 @@
+.block {
+    display: flex;
+    gap: 10px;
+}
+
+.input {
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.button {
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+    text-transform: uppercase;
+    align-items: center;
+    cursor: pointer;
+}

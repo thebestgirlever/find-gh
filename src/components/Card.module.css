@@ -1,0 +1,23 @@
+
+.card {
+    padding: 10px 15px;
+    width: 300px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.name {
+    text-align: center;
+}
+
+.achievement {
+    display: flex;
+    gap: 5px
+}
+.star{
+    width: 20px;
+}
