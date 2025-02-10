@@ -11,6 +11,11 @@ h1 {
     padding: 20px 40px;
 }
 
+.message{
+    padding-top: 30px;
+    text-align: center;
+}
+
 .loading {
     padding-top: 40px;
     width: 20px;

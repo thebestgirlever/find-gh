@@ -34,8 +34,9 @@ const App = () => {
         <div className={styles.root}>
             <h1>Найдите свой репозиторий</h1>
             <SearchBar onSearch={handleSearch} />
-            {error && <p>{error}</p>}
-
+            
+            {error && <p className={styles.message}>{error} <br/> Не найдено. Такой человек точно существует?</p>}
+    
             {loading ? (
                 <img src={LoadingIconn} className={styles.loading} alt="loading" />
             ) : (
@@ -44,13 +45,10 @@ const App = () => {
                         repos.slice(0, 30).map((repo) => (
                             <Card key={repo.id} repo={repo} />
                         ))
-                    ) : (
-                        <p>Не найдено, такой человек точно существует?</p>
-                    )}
+                    ) : null}
                 </div>
             )}
         </div>
-
     );
 };
 
