@@ -7,18 +7,33 @@ const Api = ({ username, setRepos, setError, setLoading }) => {
         const octokit = new Octokit();
 
         try {
-            const { data } = await octokit.request('GET /users/{username}/repos', {
-                username,
-                per_page: 30,  
-                headers: {
-                    'X-GitHub-Api-Version': '2022-11-28',
-                }
-            });
+            let allRepos = [];
+            let page = 1;
+            let hasMore = true;
 
-            setRepos(data);  
+            while (hasMore) {
+                const { data } = await octokit.request('GET /users/{username}/repos', {
+                    username,
+                    per_page: 30, 
+                    page,
+                    headers: {
+                        'X-GitHub-Api-Version': '2022-11-28',
+                    }
+                });
+
+                allRepos = [...allRepos, ...data];
+
+                if (data.length < 30) { 
+                    hasMore = false; 
+                } else {
+                    page++; 
+                }
+            }
+
+            setRepos(allRepos);
             setLoading(false);
         } catch (err) {
-            setError("Error fetching repositories");
+            setError("Ошибка при получении репозиториев");
             setLoading(false);
             console.error(err);
         }
@@ -28,4 +43,3 @@ const Api = ({ username, setRepos, setError, setLoading }) => {
 };
 
 export default Api;
-

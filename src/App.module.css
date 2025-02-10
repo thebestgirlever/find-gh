@@ -23,7 +23,7 @@ h1 {
 }
 
 .container {
-    padding-top: 40px;
+    padding: 40px 0 50px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: start;
