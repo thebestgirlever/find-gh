@@ -1,5 +1,7 @@
 .block {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
@@ -21,4 +23,11 @@
     text-transform: uppercase;
     align-items: center;
     cursor: pointer;
+}
+
+@media (max-width: 730px) {
+    .block{
+        flex-direction: column;
+
+    }
 }
